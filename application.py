@@ -12,6 +12,10 @@ def home():
 def status():
     return jsonify(status="Backend is running")
 
+@application.route('/completed/')
+def status():
+    return jsonify(status="Backend is completed")
+
 # Fixed the route to accept dynamic 'id' as a URL parameter
 @application.route('/status/<id>')
 def status_with_id(id):
