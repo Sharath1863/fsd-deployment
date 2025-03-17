@@ -22,4 +22,4 @@ def status_with_id(id):
     return jsonify(status=f"Backend is running for ID: {id}")
 
 if __name__ == "__main__":
-    application.run(host="0.0.0.0", port=8080)
+    application.run(host="0.0.0.0", port=80)
