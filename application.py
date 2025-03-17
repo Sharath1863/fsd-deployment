@@ -24,5 +24,10 @@ def test():
 def status_with_id(id):
     return jsonify(status=f"Backend is running for ID: {id}")
 
+@application.route('/items/')
+def items():
+    # Returning a list of items
+    return jsonify(items=["item1", "item2", "item3"])
+
 if __name__ == "__main__":
     application.run(host="0.0.0.0", port=80)  # Ensure this runs on port 80 for Elastic Beanstalk
