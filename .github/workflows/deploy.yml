@@ -3,7 +3,7 @@ name: Deploy to Elastic Beanstalk
 on:
   push:
     branches:
-      - main  # Adjust if you're using a different branch
+      - main  # Change if you're using a different branch
 
 jobs:
   deploy:
@@ -18,7 +18,13 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2  # Use your correct region here
+          aws-region: us-east-1  # Replace with your region
+
+      - name: Install Elastic Beanstalk CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install awsebcli  # Installs the Elastic Beanstalk CLI
 
       - name: Deploy to Elastic Beanstalk
         run: |
